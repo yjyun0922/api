@@ -51,17 +51,17 @@ int main(int argc, char **argv){
 	
 	// Purpose: Counts number of bits in key 
 	reply = redisCommand(p,"BITCOUNT %s","bark");
-	printf("BITCOUNT: %s\n", reply->str);
+	printf("BITCOUNT: %d\n", reply->int);
 	freeReplyObject(reply);
 
 	// Purpose: Counts number of bits in a range in key 
 	reply = redisCommand(p,"BITCOUNT %s 3 3","bark");
-	printf("BITCOUNT: %s\n", reply->str);
+	printf("BITCOUNT: %d\n", reply->int);
 	freeReplyObject(reply);
 
 	// Purpose: Checks if key exists 
 	reply = redisCommand(p, "EXISTS %s","foo");
-	printf("EXISTS: %s\n",reply->str);
+	printf("EXISTS: %d\n",reply->str);
 	freeReplyObject(reply);
 
 	reply = redisCommand(p,"EXISTS %s","bark");
